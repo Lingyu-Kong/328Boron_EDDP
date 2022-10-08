@@ -37,8 +37,8 @@ SUPERCELL=np.array([[-(args.supercell//2), args.supercell//2+1]]*3, dtype=np.int
 
 trajloader=Traj2Graph(args.cutoff, args.pmin, args.pmax, M, SUPERCELL)
 if args.train_data!=args.test_data:
-    training_data,train_loading_time=trajloader.load(args.train_data, shuffle=True,length=640)
-    testing_data,test_loading_time=trajloader.load(args.test_data, shuffle=True,length=64)
+    training_data,train_loading_time=trajloader.load(args.train_data, shuffle=True,)
+    testing_data,test_loading_time=trajloader.load(args.test_data, shuffle=True,length=int(len(training_data)*0.1))
 else:
     data,loading_time=trajloader.load(args.train_data, shuffle=True)
     training_data=data[:int(len(data)*0.9)]
