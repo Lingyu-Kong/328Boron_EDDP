@@ -30,6 +30,8 @@ args=parser.parse_args()
 if args.wandb:
     wandb.login(key="37f3de06380e350727df28b49712f8b7fe5b14aa")
     wandb.init(project="328Boron_EDDP",name=args.train_data+"->"+args.test_data,config=args)
+    
+print(args)
 
 M=args.m
 FEATURE_DIM=1+M+M**2
